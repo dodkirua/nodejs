@@ -7,6 +7,11 @@ const expressApp = express();
 expressApp.use('/assets', express.static(__dirname + '/../public/build'));
 expressApp.use(express.json());
 
+// Initialisation de Mongoose
+const mongoose = require('mongoose');
+dbConnect = async () => await mongoose.connect(
+    "mongodb+srv://dodkirua:s8GHZbXVBgfXKAnA@cluster0.n3nsa.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+);
 
 expressApp.use((req, res, next) =>{
     console.log("Requete recu => " + req.url);
